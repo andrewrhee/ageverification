@@ -292,7 +292,8 @@ $(document).ready(function () {
                 $("#div-controls").hide();
             },
             success: function (data) {
-
+                console.log(data, 'done');
+                doneVerifying(data, 'done2')
                 //Convert data to string before parsing
                 var driversLicense = JSON.stringify(data);
                 driversLicense = jQuery.parseJSON(driversLicense);

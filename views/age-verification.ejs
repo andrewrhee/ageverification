@@ -13,8 +13,8 @@
           <div class="group-contents">
             <div class="input">
               <div class="label">Name:</div>
-              <input type="text" name="firstname" ng-model="info.lastname" placeholder="First" required="required" id="checkout-firstname-field" class="md ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAfBJREFUWAntVk1OwkAUZkoDKza4Utm61iP0AqyIDXahN2BjwiHYGU+gizap4QDuegWN7lyCbMSlCQjU7yO0TOlAi6GwgJc0fT/fzPfmzet0crmD7HsFBAvQbrcrw+Gw5fu+AfOYvgylJ4TwCoVCs1ardYTruqfj8fgV5OUMSVVT93VdP9dAzpVvm5wJHZFbg2LQ2pEYOlZ/oiDvwNcsFoseY4PBwMCrhaeCJyKWZU37KOJcYdi27QdhcuuBIb073BvTNL8ln4NeeR6NRi/wxZKQcGurQs5oNhqLshzVTMBewW/LMU3TTNlO0ieTiStjYhUIyi6DAp0xbEdgTt+LE0aCKQw24U4llsCs4ZRJrYopB6RwqnpA1YQ5NGFZ1YQ41Z5S8IQQdP5laEBRJcD4Vj5DEsW2gE6s6g3d/YP/g+BDnT7GNi2qCjTwGd6riBzHaaCEd3Js01vwCPIbmWBRx1nwAN/1ov+/drgFWIlfKpVukyYihtgkXNp4mABK+1GtVr+SBhJDbBIubVw+Cd/TDgKO2DPiN3YUo6y/nDCNEIsqTKH1en2tcwA9FKEItyDi3aIh8Gl1sRrVnSDzNFDJT1bAy5xpOYGn5fP5JuL95ZjMIn1ya7j5dPGfv0A5eAnpZUY3n5jXcoec5J67D9q+VuAPM47D3XaSeL4AAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: pointer;">
-              <input type="text" name="lastname" ng-model="info.firstname" placeholder="Last" required="required" class="md ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+              <input type="text" name="first_name" ng-model="info.lastname" placeholder="First" required="required" id="checkout-firstname-field" class="md ng-pristine ng-empty ng-invalid ng-invalid-required ng-touched" style="background-image: url(&quot;data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACAAAAAgCAYAAABzenr0AAAAAXNSR0IArs4c6QAAAfBJREFUWAntVk1OwkAUZkoDKza4Utm61iP0AqyIDXahN2BjwiHYGU+gizap4QDuegWN7lyCbMSlCQjU7yO0TOlAi6GwgJc0fT/fzPfmzet0crmD7HsFBAvQbrcrw+Gw5fu+AfOYvgylJ4TwCoVCs1ardYTruqfj8fgV5OUMSVVT93VdP9dAzpVvm5wJHZFbg2LQ2pEYOlZ/oiDvwNcsFoseY4PBwMCrhaeCJyKWZU37KOJcYdi27QdhcuuBIb073BvTNL8ln4NeeR6NRi/wxZKQcGurQs5oNhqLshzVTMBewW/LMU3TTNlO0ieTiStjYhUIyi6DAp0xbEdgTt+LE0aCKQw24U4llsCs4ZRJrYopB6RwqnpA1YQ5NGFZ1YQ41Z5S8IQQdP5laEBRJcD4Vj5DEsW2gE6s6g3d/YP/g+BDnT7GNi2qCjTwGd6riBzHaaCEd3Js01vwCPIbmWBRx1nwAN/1ov+/drgFWIlfKpVukyYihtgkXNp4mABK+1GtVr+SBhJDbBIubVw+Cd/TDgKO2DPiN3YUo6y/nDCNEIsqTKH1en2tcwA9FKEItyDi3aIh8Gl1sRrVnSDzNFDJT1bAy5xpOYGn5fP5JuL95ZjMIn1ya7j5dPGfv0A5eAnpZUY3n5jXcoec5J67D9q+VuAPM47D3XaSeL4AAAAASUVORK5CYII=&quot;); background-repeat: no-repeat; background-attachment: scroll; background-size: 16px 18px; background-position: 98% 50%; cursor: pointer;">
+              <input type="text" name="last_name" ng-model="info.firstname" placeholder="Last" required="required" class="md ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
             </div>
             <div class="input">
               <div class="label">Address:</div>
@@ -280,6 +280,10 @@
               <div class="label">City:</div>
               <input type="text" name="city" ng-model="info.city" required="required" class="md ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
             </div>
+            <div class="input">
+              <div class="label">Email:</div>
+              <input type="text" name="email" ng-model="info.email" required="required" class="md ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+            </div>
             <div class="clearfix"></div>
             <div ng-show="info.country == 'United States'" class="input">
               <div class="label">State:</div>
@@ -346,7 +350,7 @@
             <div class="clearfix"> </div>
             <div class="input">
               <div ng-hide="info.country == 'United States'" class="label ng-hide">Postal Code:</div>
-              <input type="text" name="postcode" ng-model="info.zip" required="required" class="sm ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
+              <input type="text" name="postal_code" ng-model="info.zip" required="required" class="sm ng-pristine ng-untouched ng-empty ng-invalid ng-invalid-required">
             </div>
             <div class="clearfix"></div>
           </div>
@@ -713,7 +717,7 @@
         </div>
         <div class="modal-footer">
           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          <button type="button" class="btn btn-primary step step-1" data-step="1" ng-click="verifyUserAge(info)">Continue1</button>
+          <button type="button" class="btn btn-primary step step-1" data-step="1" ng-click="verifyUserAge(info)" onclick="sendEvent('#demo-modal-3', 1)">Continue</button>
           <button type="button" class="btn btn-primary step step-2" data-step="2" onclick="sendEvent('#demo-modal-3', 1)" style="display: none;">Back</button>
           <button type="button" class="btn btn-primary step step-2" data-step="2" onclick="sendEvent('#demo-modal-3', 3)" style="display: none;">Continue</button>
         </div>
@@ -721,7 +725,49 @@
     </div>
   </form>
   <script>
+  function objectifyForm(formArray) {//serialize data function
+    var returnArray = {};
+    for (var i = 0; i < formArray.length; i++){
+      returnArray[formArray[i]['name']] = formArray[i]['value'];
+    }
+    return returnArray;
+  }
+  function doneVerifying(data) {
+    // delete data.FaceImage
+    var _data = {
+      NameLast: data.NameLast,
+      DateOfBirth4: data.DateOfBirth4
+    }
+    $.post({
+      url: '/api/verify2',
+      data: _data,
+      dataType: 'json',
+      success: function(res) {
+        console.log(res, 'res from server');
+        if (res.status === 'not_found')
+          $('#demo-modal-3').trigger('next.m.1'); //
+        else
+          if (res.status === 'found' && res.age === 'over')
+            $('#demo-modal-3').trigger('next.m.3');
+          else
+            $('#demo-modal-3').trigger('next.m.1'); //
+      }
+    })
+  }
   sendEvent = function(sel, step) {
-    $(sel).trigger('next.m.' + step);
+    var dobData = objectifyForm($( "form" ).serializeArray())
+    console.log(dobData);
+    $.post({
+      url: '/api/verify',
+      data: dobData,
+      dataType: 'json',
+      success: function(res) {
+        console.log(res, 'res from server');
+        if (res.status === 'not_found')
+          $(sel).trigger('next.m.2');
+        else
+          $(sel).trigger('next.m.3');
+      }
+    })
   }
   </script>

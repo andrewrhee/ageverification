@@ -10,16 +10,16 @@ router.post('/verify', function(req, res, next) {
   console.log('last_name >>>> ', req.body.last_name);
   User.findOne({ 'last_name': req.body.last_name }, function(err, user) {
       if (err) return next(err);
+      console.log(user,'found user');
       if (user) {
-        if (user.dob_year > 1996) {
-          res.json({ status: 'found', age: 'under' });
-        } else if (user.dob_year < 1996) {
-          res.json({ status: 'found', age: 'over' });
+        if (user.dob_year < 1996) {
+          return res.json({ status: 'found', age: 'over' });
+        } else {
+          return res.json({ status: 'found', age: 'under' });
         }
 
       } else {
         var user1 = new User();
-
         user1.email = req.body.email;
         user1.first_name = req.body.first_name;
         user1.last_name = req.body.last_name;
@@ -32,15 +32,28 @@ router.post('/verify', function(req, res, next) {
         user1.dob_year = req.body.dob_year;
         user1.save(function(err) {
           if (err) next(err);
+          res.json({ status: 'not_found' });
         });
 
-        res.json({ status: 'not_found' });
       }
 
     });
-
-
 });
+
+router.post('/verify2', function(req, res, next) {
+  console.log(req.body, 'info from driver licence');
+  User.findOne({ 'last_name': req.body.NameLast}, function(err, user) {
+    if (err) return next(err);
+    if (!user)
+      return res.json({status: 'not_found', message: 'Info on driver license does not match any user in our record.'})
+    var yearOfBirth = req.body.DateOfBirth4.split('-')[2]
+    if (yearOfBirth < 1996) {
+      return res.json({ status: 'found', age: 'over' });
+    } else {
+      return res.json({ status: 'found', age: 'under' });
+    }
+  })
+})
 
 // router.get('/:name', function(req, res, next) {
 //
